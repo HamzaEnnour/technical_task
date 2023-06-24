@@ -75,7 +75,7 @@ const RegisterCard: React.FC<any> = () => {
       <h1>Registration Form</h1>
       <form onSubmit={formik.handleSubmit}>
         <div className={classes["input-group"]}>
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name">{t("RULES.NAME")}:</label>
           <input
             type="text"
             id="name"
@@ -87,7 +87,7 @@ const RegisterCard: React.FC<any> = () => {
           )}
         </div>
         <div className={classes["input-group"]}>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">{t("RULES.EMAIL")}:</label>
           <input
             type="email"
             id="email"
@@ -99,7 +99,7 @@ const RegisterCard: React.FC<any> = () => {
           )}
         </div>
         <div className={classes["input-group"]}>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">{t("RULES.PASSWORD")}:</label>
           <input
             type="password"
             id="password"
@@ -113,7 +113,7 @@ const RegisterCard: React.FC<any> = () => {
           )}
         </div>
         <div className={classes["input-group"]}>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <label htmlFor="confirmPassword">{t("RULES.CONFIRMPASSWOED")}:</label>
           <input
             type="password"
             id="confirmPassword"
@@ -133,14 +133,16 @@ const RegisterCard: React.FC<any> = () => {
             data-testid="register-button"
             type="submit"
           >
-            {registerMutation.isLoading ? "Registering..." : "Register"}
+            {registerMutation.isLoading
+              ? t("RULES.REGISTERINGBTN")
+              : t("RULES.REGISTERBTN")}
           </button>
           <button
             className={classes.btnReset}
             type="reset"
             onClick={() => formik.resetForm()}
           >
-            Reset
+            {t("RULES.RESETBTN")}
           </button>
         </div>
 

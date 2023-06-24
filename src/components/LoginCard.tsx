@@ -15,6 +15,7 @@ const LoginCard: React.FC<any> = () => {
   const { dispatch } = useContext(AppContext);
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     formik.validateForm();
@@ -23,9 +24,11 @@ const LoginCard: React.FC<any> = () => {
   const loginMutation = useMutation(
     (credentials: { email: string; password: string }) =>
       login(credentials.email, credentials.password).then((result) => {
-        dispatch({ type: "SET_CURRENT_USER", payload: result });
-        window.localStorage.setItem("accessToken", result.id);
-        navigate("/");
+        if (result) {
+          dispatch({ type: "SET_CURRENT_USER", payload: result });
+          window.localStorage.setItem("accessToken", result.id);
+          navigate("/");
+        } else setErrorMessage(t("VALIDATION.CREDENTIALS"));
       })
   );
 
@@ -51,15 +54,18 @@ const LoginCard: React.FC<any> = () => {
     <div className={classes["register-card"]}>
       <h1>Login Form</h1>
       <form onSubmit={formik.handleSubmit}>
+        {errorMessage && (
+          <div className={classes["error-text"]}>{errorMessage}</div>
+        )}
         <div className={classes["input-group"]}>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">{t("RULES.EMAIL")}:</label>
           <input type="email" id="email" {...formik.getFieldProps("email")} />
           {formik.touched.email && formik.errors.email && (
             <div className={classes["error-text"]}>{formik.errors.email}</div>
           )}
         </div>
         <div className={classes["input-group"]}>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">{t("RULES.PASSWORD")}:</label>
           <input
             type="password"
             id="password"
@@ -78,14 +84,19 @@ const LoginCard: React.FC<any> = () => {
             disabled={loginMutation.isLoading}
             type="submit"
           >
-            {loginMutation.isLoading ? "Logging..." : "Login"}
+            {loginMutation.isLoading
+              ? t("RULES.LOGGINGBTN")
+              : t("RULES.LOGINBTN")}
           </button>
           <button
             className={classes.btnReset}
             type="reset"
-            onClick={() => formik.resetForm()}
+            onClick={() => {
+              formik.resetForm();
+              setErrorMessage("");
+            }}
           >
-            Reset
+            {t("RULES.RESETBTN")}
           </button>
         </div>
         <div className={classes["sign-in-link"]}>

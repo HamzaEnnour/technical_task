@@ -6,7 +6,22 @@
     "CONFIRMPASSWORDREQ": "Confirm Password is required.",
     "EMAIL": "Invalid email address.",
     "EMAILEXIST": "Email already Exist",
-    "CONFIRMPASSWORD": "Passwords must match"
+    "CONFIRMPASSWORD": "Passwords must match",
+    "CREDENTIALS": "Invalid email or password"
+  },
+  "RULES": {
+    "LOGINBTN": "Login",
+    "REGISTERBTN": "Register",
+    "UPDATEBTN": "Update",
+    "LOGGINGBTN": "Logging...",
+    "REGISTERINGBTN": "Registering...",
+    "UPDATINGBTN": "Updating...",
+    "HOMEPAGEBTN": "Go to Homepage",
+    "RESETBTN": "Reset",
+    "NAME:": "Name",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "CONFIRMPASSWOED": "Confirm Password"
   },
   "NAVBAR": {
     "LOGIN": "Sign in",

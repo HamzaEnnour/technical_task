@@ -73,21 +73,21 @@ const EditProfileCard: React.FC<any> = ({ user, onUpdate, profile }) => {
       <h1>Edit Profile Form</h1>
       <form onSubmit={formik.handleSubmit}>
         <div className={classes["input-group"]}>
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name">{t("RULES.NAME")}:</label>
           <input type="text" id="name" {...formik.getFieldProps("name")} />
           {formik.touched.name && formik.errors.name && (
             <div className={classes["error-text"]}>{formik.errors.name}</div>
           )}
         </div>
         <div className={classes["input-group"]}>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">{t("RULES.EMAIL")}:</label>
           <input type="email" id="email" {...formik.getFieldProps("email")} />
           {formik.touched.email && formik.errors.email && (
             <div className={classes["error-text"]}>{formik.errors.email}</div>
           )}
         </div>
         <div className={classes["input-group"]}>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">{t("RULES.PASSWORD")}:</label>
           <input
             type="password"
             id="password"
@@ -100,7 +100,7 @@ const EditProfileCard: React.FC<any> = ({ user, onUpdate, profile }) => {
           )}
         </div>
         <div className={classes["input-group"]}>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <label htmlFor="confirmPassword">{t("RULES.CONFIRMPASSWORD")}:</label>
           <input
             type="password"
             id="confirmPassword"
@@ -118,7 +118,9 @@ const EditProfileCard: React.FC<any> = ({ user, onUpdate, profile }) => {
             disabled={editMutation.isLoading}
             type="submit"
           >
-            {editMutation.isLoading ? "Updating..." : "Update"}
+            {editMutation.isLoading
+              ? t("RULES.UPDATINGBTN")
+              : t("RULES.UPDATEBTN")}
           </button>
           <button
             className={classes.btnReset}
@@ -134,7 +136,7 @@ const EditProfileCard: React.FC<any> = ({ user, onUpdate, profile }) => {
                 : formik.resetForm
             }
           >
-            Reset
+            {t("RULES.RESETBTN")}
           </button>
         </div>
       </form>

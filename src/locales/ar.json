@@ -7,7 +7,22 @@
     "CONFIRMPASSWORDREQ": "تأكيد كلمة المرور مطلوب.",
     "EMAIL": "عنوان البريد الإلكتروني غير صالح.",
     "EMAILEXIST": "البريد الالكتروني موجود مسبقا",
-    "CONFIRMPASSWORD": "يجب أن تتطابق كلمات المرور."
+    "CONFIRMPASSWORD": "يجب أن تتطابق كلمات المرور.",
+    "CREDENTIALS": "البريد الإلكتروني أو كلمة السر خاطئة"
+  },
+  "RULES": {
+    "LOGINBTN": "تسجيل الدخول",
+    "REGISTERBTN": "اشتراك",
+    "UPDATEBTN": "تحديث",
+    "LOGGINGBTN": "تسجيل...",
+    "REGISTERINGBTN": "جاري التسجيل ..",
+    "UPDATINGBTN": "جارٍ التحديث ...",
+    "HOMEPAGEBTN": "اذهب إلى الصفحة الرئيسية",
+    "RESETBTN": "إعادة ضبط",
+    "NAME:": "اسم",
+    "EMAIL": "بريد إلكتروني",
+    "PASSWORD": "كلمة المرور",
+    "CONFIRMPASSWOED": "تأكيد كلمة المرور"
   },
   "NAVBAR": {
     "LOGIN": "تسجيل الدخول",
