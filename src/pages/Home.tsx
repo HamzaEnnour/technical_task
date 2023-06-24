@@ -39,7 +39,10 @@ const Home: React.FC = () => {
     refetch(); // Refresh the user list after deletion
   };
 
-  const handleEditUser = (u: any) => setSelectedUser(u);
+  const handleEditUser = (u: any) => {
+    console.log(u);
+    setSelectedUser(u);
+  };
 
   return (
     <>

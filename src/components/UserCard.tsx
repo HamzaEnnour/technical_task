@@ -59,7 +59,7 @@ const UserCard: React.FC<any> = ({ users, onDelete, onUpdate }) => {
                     style={{ marginBottom: "20px" }}
                     onClick={() => onUpdate(user)}
                   >
-                    Update
+                    {t("RULES.UPDATEBTN")}
                   </button>
                   <a
                     style={{ cursor: "pointer", marginLeft: "20px" }}

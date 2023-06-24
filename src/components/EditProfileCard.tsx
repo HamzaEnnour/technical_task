@@ -17,6 +17,15 @@ const EditProfileCard: React.FC<any> = ({ user, onUpdate, profile }) => {
     formik.validateForm();
   }, [i18n.language]);
 
+  useEffect(() => {
+    formik.setValues({
+      name: user?.name || "",
+      email: user?.email || "",
+      password: user?.password || "",
+      confirmPassword: "",
+    });
+  }, [user]);
+
   const editMutation = useMutation(
     (_user: { name: string; email: string; password: string }) =>
       updateUser(user.id, _user),
@@ -53,7 +62,7 @@ const EditProfileCard: React.FC<any> = ({ user, onUpdate, profile }) => {
       name: user?.name || "",
       email: user?.email || "",
       password: user?.password || "",
-      confirmPassword: user?.confirmPassword || "",
+      confirmPassword: "",
     },
     validationSchema: Yup.object({
       name: Yup.string().required(t("VALIDATION.NAMEREQ")),
@@ -112,6 +121,7 @@ const EditProfileCard: React.FC<any> = ({ user, onUpdate, profile }) => {
             </div>
           )}
         </div>
+
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <button
             className={classes.btn}
