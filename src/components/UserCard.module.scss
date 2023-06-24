@@ -1,0 +1,131 @@
+.container {
+  max-width: 1300px;
+  width: 100%;
+  margin: auto;
+  padding: 0px 20px;
+}
+
+.list_section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 60px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.card {
+  flex: 0 0 calc(33.33% - 20px);
+  max-width: calc(33.33% - 20px);
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  transition: 0.3s;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  border-color: rgb(162, 162, 246);
+}
+
+.h3_with_spacer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Add margin at the bottom for spacing */
+  font-size: 15px;
+  line-height: 40px;
+}
+
+a:hover svg {
+  color: red;
+}
+
+.h3_with_spacer > svg {
+  margin-right: 5px; /* Adjust the spacing between the icon and text */
+}
+.btn {
+  border: none;
+  outline: none;
+  background: rgb(162, 162, 246);
+  color: #fff;
+  border-radius: 10px;
+  max-width: 120px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid rgb(162, 162, 246);
+}
+.btn:hover {
+  background: transparent;
+  color: rgb(162, 162, 246);
+}
+
+@media (max-width: 969px) {
+  .list_section {
+    padding: 20px 0px;
+  }
+  h1 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .h3_with_spacer {
+    font-size: 13px;
+    line-height: 40px;
+  }
+  .card {
+    flex: 0 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  button {
+    background-color: #e6e6e6;
+    border: none;
+    color: #333;
+    padding: 8px 16px;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #ccc;
+    }
+
+    &.active {
+      background-color: #333;
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "VALIDATION": {
+    "NAMEREQ": "Name is required.",
+    "EMAILREQ": "Email is required.",
+    "PASSWORDREQ": "Password is required.",
+    "CONFIRMPASSWORDREQ": "Confirm Password is required.",
+    "EMAIL": "Invalid email address.",
+    "EMAILEXIST": "Email already Exist",
+    "CONFIRMPASSWORD": "Passwords must match"
+  },
+  "NAVBAR": {
+    "LOGIN": "Sign in",
+    "REGISTER": "Sign up",
+    "LOGOUT": "Sign out",
+    "PROFILE": "Profile",
+    "HOME": "Home"
+  },
+  "HOME": "Home"
+}

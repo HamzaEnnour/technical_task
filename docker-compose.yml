@@ -1,0 +1,21 @@
+version: "3"
+services:
+  react-app:
+    image: node:14-alpine
+    command: sh -c "cd /app && npm install --force && npm start"
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+    depends_on:
+      - json-server
+    environment:
+      - REACT_APP_API_URL=http://json-server:3001
+
+  json-server:
+    image: node:14-alpine
+    command: npx json-server --watch db.json --port 3001 --host 0.0.0.0
+    ports:
+      - 3001:3001
+    volumes:
+      - ./db.json:/app/db.json

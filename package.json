@@ -3,24 +3,36 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.36",
     "@types/react": "^18.2.13",
     "@types/react-dom": "^18.2.6",
+    "axios": "^1.4.0",
+    "formik": "^2.4.2",
+    "i18next": "^23.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^13.0.1",
+    "react-icons": "^4.10.1",
+    "react-query": "^3.39.3",
+    "react-router-dom": "^6.13.0",
     "react-scripts": "5.0.1",
+    "sass": "^1.63.5",
+    "ts-jest": "^29.1.0",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "json-server": "json-server --watch db.json --port 3001",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +51,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-syntax-jsx": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@types/jsdom": "^21.1.1",
+    "babel-jest": "^29.5.0",
+    "cypress": "^12.15.0",
+    "jest": "^27.5.1"
   }
 }
