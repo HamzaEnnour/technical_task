@@ -100,7 +100,7 @@ const EditProfileCard: React.FC<any> = ({ user, onUpdate, profile }) => {
           )}
         </div>
         <div className={classes["input-group"]}>
-          <label htmlFor="confirmPassword">{t("RULES.CONFIRMPASSWORD")}:</label>
+          <label htmlFor="confirmPassword">{t("RULES.CONFIRMPASSWOED")}:</label>
           <input
             type="password"
             id="confirmPassword"
