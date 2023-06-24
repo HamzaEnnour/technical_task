@@ -47,14 +47,6 @@ const EditProfileCard: React.FC<any> = ({ user, onUpdate, profile }) => {
       email: values.email,
       password: values.password,
     });
-
-    if (!profile)
-      formik.setValues({
-        name: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
   };
 
   const formik = useFormik({
@@ -64,18 +56,33 @@ const EditProfileCard: React.FC<any> = ({ user, onUpdate, profile }) => {
       password: user?.password || "",
       confirmPassword: "",
     },
-    validationSchema: Yup.object({
+    validationSchema: Yup.object().shape({
       name: Yup.string().required(t("VALIDATION.NAMEREQ")),
       email: Yup.string()
         .email(t("VALIDATION.EMAIL"))
         .required(t("VALIDATION.EMAILREQ")),
       password: Yup.string().required(t("VALIDATION.PASSWORDREQ")),
-      confirmPassword: Yup.string()
-        .oneOf([Yup.ref("password"), ""], t("VALIDATION.CONFIRMPASSWORD"))
-        .required(t("VALIDATION.CONFIRMPASSWORDREQ")),
+      confirmPassword: Yup.string().when(
+        "password",
+        (password: any, schema: any) => {
+          if (
+            formik.touched.password &&
+            formik.values.password !== formik.initialValues.password
+          ) {
+            return schema
+              .oneOf([Yup.ref("password"), ""], t("VALIDATION.CONFIRMPASSWORD"))
+              .required(t("VALIDATION.CONFIRMPASSWORDREQ"));
+          }
+          return schema;
+        }
+      ),
     }),
     onSubmit: handleUpdate,
   });
+
+  useEffect(() => {
+    formik.setFieldValue("confirmPassword", ""); // Reset confirmPassword field when password field is touched
+  }, [formik.touched.password]);
 
   return (
     <div className={classes["register-card"]}>
